@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: new Column(
+      body: ListView(
         children: <Widget>[
           new Center(child: new Image.network(bingImg1)),
           new Center(child: new FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: bingImg2)),
