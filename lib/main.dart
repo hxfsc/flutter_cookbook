@@ -9,27 +9,30 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
-          length: 3,
-          child: Scaffold(
-            appBar: AppBar(
-              title: TabBar(
-                tabs: [
-                  Tab(icon: Icon(Icons.bathtub)),
-                  Tab(icon: Icon(Icons.account_balance)),
-                  Tab(icon: Icon(Icons.favorite_border))
-                ],
+      home: Scaffold(
+        drawer: Drawer(
+          
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(child: Text('head'), decoration: BoxDecoration(color: Colors.blue)),
+              ListTile(
+                title: Text('导航一'),
+                onTap: ()=>{
+                  Navigator.pop(context)
+                },
               ),
-            ),
-            body: TabBarView(
-              children: [
-                Icon(Icons.bathtub),
-                Icon(Icons.account_balance),
-                Icon(Icons.favorite_border)
-              ],
-            ),
-          )
-      ),
+              ListTile(
+                title: Text('导航二'),
+                onTap: ()=>{
+                  Navigator.pop(context)
+                },
+              )
+            ],
+          ),
+        ),
+        body: Center(child: Text('data'),),
+      )
     );
   }
 }
